@@ -1,7 +1,8 @@
-export interface Character {
+export interface CharacterType {
     id: string;
     name: string;
     species: string;
+    status: string;
     image: string;
 }
 
@@ -14,5 +15,5 @@ export interface Info {
 
 export interface CharactersData {
     info: Info | null;
-    results: Character[];
+    results: CharacterType[];
 }

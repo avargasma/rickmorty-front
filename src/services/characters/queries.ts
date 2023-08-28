@@ -15,3 +15,14 @@ query getCharacters($page:Int) {
         }
     }
 }`;
+
+export const getChatacterQuery = `
+query getCharacters($id:ID!) {
+    character(id:$id) {
+        id
+        name
+        status
+        species
+        image
+    }
+}`;

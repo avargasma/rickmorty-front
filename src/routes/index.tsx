@@ -1,6 +1,6 @@
 import { lazy, LazyExoticComponent, Fragment, Suspense } from "react";
 import { Route, Outlet } from "react-router-dom";
-import { CHARACTERS_PATH, FAVORITES_PATH, HOME_PATH } from "./constants";
+import { DETAILS_PATH, HOME_PATH } from "./constants";
 
 interface RouteProps {
     path?: string;
@@ -41,7 +41,6 @@ export const routes: RouteProps[] = [
         element: lazy(async () => await import("../pages/Login")),
     },
     {
-        layout: lazy(async () => await import("../layouts/Dashboard")),
         guard: lazy(async () => await import("../guards/AuthGuard")),
         children: [
             {
@@ -49,12 +48,8 @@ export const routes: RouteProps[] = [
                 element: lazy(async () => await import("../pages/Home")),
             },
             {
-                path: CHARACTERS_PATH,
-                element: lazy(async () => await import("../pages/Characters")),
-            },
-            {
-                path: FAVORITES_PATH,
-                element: lazy(async () => await import("../pages/Favorites")),
+                path: DETAILS_PATH,
+                element: lazy(async () => await import("../pages/Details")),
             }
         ]
     },
