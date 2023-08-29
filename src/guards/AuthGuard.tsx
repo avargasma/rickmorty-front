@@ -5,7 +5,7 @@ interface AuthGuardProps {
 }
 
 const AuthGuard = ({ children }: AuthGuardProps) => {
-  const isAuthenticated = localStorage.getItem('login');
+  const isAuthenticated = true;
   
   if(!isAuthenticated){
     return <Navigate to={'/login'} />

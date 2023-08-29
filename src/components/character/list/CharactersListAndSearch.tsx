@@ -1,4 +1,4 @@
-import { useEffect, useCallback, useState, useContext } from "react";
+import { useEffect, useCallback, useContext } from "react";
 
 import Search from "../filter/Search"
 import CharactersList from "./CharactersList"
