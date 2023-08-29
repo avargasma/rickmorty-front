@@ -1,5 +1,4 @@
 import { useContext, useState, useEffect, useCallback } from "react";
-import { BsSearch } from "react-icons/bs";
 import { BiSearch } from "react-icons/bi";
 import { HiAdjustments } from "react-icons/hi";
 

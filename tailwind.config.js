@@ -19,8 +19,9 @@ module.exports = {
           DEFAULT: '#06b6d4',
           lighter: '#f8fafc',
           100: '#F3F4F6',
+          300: '#D1D5DB',
           400: '#9CA3AF',
-          500:'#6B7280'
+          500: '#6B7280'
         }
       }
     },
