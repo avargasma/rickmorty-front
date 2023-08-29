@@ -22,3 +22,65 @@
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
+
+@layer components {    
+    html {
+        @apply text-c-black
+    }    
+    .home-left{
+        @apply flex border rounded shadow-lg h-full
+    }
+    .home-right{
+        @apply sm:flex hidden w-2/3 border flex-col py-5 pl-20 pt-10 px-10
+    }
+    .home-left-items{
+        @apply sm:w-1/3 w-full bg-grey-lighter border flex flex-col p-5 pt-10
+    }
+    .home-left-title{
+        @apply py-2 px-3 bg-grey-lighter flex flex-row justify-between items-center
+    }
+    .home-left-title p{
+        @apply text-[24px]
+    }
+    .title-list{
+        @apply p-2 text-grey-500 font-semibold
+    }
+    .div-search{
+        @apply flex items-center rounded-[8px] mt-6 px-4 pl-3 py-2 bg-grey-100
+    }
+    .search-icon{
+        @apply w-5 h-5 absolute ml-3 pointer-events-none
+    }
+    .search-input{
+        @apply pr-3 pl-10 py-2 w-full bg-transparent focus:outline-none
+    }
+    .filter-icon{
+        @apply flex items-center rounded-[8px] justify-center w-10 h-10 text-purple-light hover:bg-purple-lighter hover:cursor-pointer
+    }
+    .wrapper-character{
+        @apply px-3 flex items-center cursor-pointer border-b border-grey-lighter rounded-[8px]
+    }
+    .wrapper-prop-character{
+        @apply border-b border-grey-lighter py-3
+    }
+    .container-filter{
+        @apply sm:w-1/3 bg-transparent absolute my-2 pt-0 p-5 left-0
+    }
+    .wrapper-filter{
+        @apply flex w-full bg-white p-5 pt-0
+    }
+    .wrapper-filter-button{
+        @apply w-full bg-grey-100 ml-1 mr-1 rounded-[8px]
+    }
+    .container-filter-button{
+        @apply flex w-full bg-white p-5 pt-0 rounded-md justify-center
+    }
+    .wrapper-check-filter{
+        @apply grow flex-1 mx-1
+    }
+    .check-button-search {
+      @apply flex select-none cursor-pointer rounded-[8px] border border-gray-200 py-2 px-4 
+        text-gray-700 transition-colors duration-200 ease-in-out
+        peer-checked:text-purple w-full justify-center
+    }
+}

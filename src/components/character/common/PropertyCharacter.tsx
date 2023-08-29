@@ -5,9 +5,9 @@ interface PropertyCharacterProps {
 
 const PropertyCharacter = ({ label, value }: PropertyCharacterProps) => {
     return (
-        <div className="border-b border-grey-lighter py-3">
-            <p className="font-bold text-grey-darkest">{label}</p>
-            <p className="text-grey-darkest">{value}</p>
+        <div className="wrapper-prop-character">
+            <p className="font-bold">{label}</p>
+            <p className="text-grey-500">{value}</p>
         </div>
     )
 }

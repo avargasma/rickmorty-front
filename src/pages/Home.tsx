@@ -6,9 +6,9 @@ const Home = () => {
   return (
     <CharacterProvider>
       <div className="h-screen">
-        <div className="flex border border-grey rounded shadow-lg h-full">
+        <div className="home-left">
           <CharactersListAndSearch />
-          <div className="sm:flex hidden sm:w-0/1 w-2/3 border flex-col py-5 pl-20 pt-10 px-10">
+          <div className="home-right">
             <DetailsCharacter />
           </div>
         </div>

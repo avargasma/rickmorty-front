@@ -31,6 +31,21 @@ const DetailsCharacter = ({ id }: DetailsCharacterProps) => {
         }
     }, [currentId, characters]);
 
+    const extraProperties = [
+        {
+            label:'Specie',
+            key:'species',
+        },
+        {
+            label:'Status',
+            key:'status',
+        },
+        {
+            label:'Ocupation',
+            key:'ocupation',
+        },
+    ]
+
     return (
         <div className="flex">
             <div className="w-full">
@@ -38,15 +53,13 @@ const DetailsCharacter = ({ id }: DetailsCharacterProps) => {
                     <div>
                         <img className="h-20 w-20 pb-2 rounded-full"
                             src={currentCharacter?.image} />
-                        <p className="text-2xl text-grey-darkest">{currentCharacter?.name}</p>
+                        <p className="text-2xl leading-8 font-bold">{currentCharacter?.name}</p>
                     </div>
                 </div>
                 {currentCharacter &&
-                    <>
-                        <PropertyCharacter label={'Specie'} value={currentCharacter.species} />
-                        <PropertyCharacter label={'Status'} value={currentCharacter.status} />
-                        <PropertyCharacter label={'Ocupation'} value={'?'} />
-                    </>}
+                    extraProperties.map((item)=>(
+                        <PropertyCharacter label={item.label} key={item.key} value={currentCharacter[item.key as keyof CharacterType]} />
+                    ))}
             </div>
         </div>
     )

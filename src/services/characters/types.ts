@@ -17,3 +17,8 @@ export interface CharactersData {
     info: Info | null;
     results: CharacterType[];
 }
+
+export interface FilterCharacter {
+    name: string;
+    species: string;
+}

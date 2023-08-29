@@ -8,7 +8,7 @@ interface CharactersListProps {
 const CharactersList = ({ characters }: CharactersListProps) => {
     return (
         <>
-            <p className="text-grey-darkest p-2">Characters {`(${characters.length})`}</p>
+            <p className="title-list">CHARACTERS {`(${characters.length})`}</p>
             <div className={`bg-grey-lighter ${characters.length ? 'overflow-auto' : ''}`}>
                 {characters.map((character, index) => (
                     <Character character={character} key={index} />

@@ -17,12 +17,30 @@ query getCharacters($page:Int) {
 }`;
 
 export const getChatacterQuery = `
-query getCharacters($id:ID!) {
+query getCharacter($id:ID!) {
     character(id:$id) {
         id
         name
         status
         species
         image
+    }
+}`;
+
+export const getChatacterByFilterQuery = `
+query getChatacterByFilter($page:Int,$filter:FilterCharacter) {
+    characters(page:$page,filter:$filter) {
+        info {
+            count
+            pages
+            next
+            prev
+        }
+        results {
+            id
+            name
+            species
+            image
+        }
     }
 }`;

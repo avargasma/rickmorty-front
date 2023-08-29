@@ -34,20 +34,15 @@ const Character = ({ character }: CharacterProps) => {
 
     return (
         <div onClick={onSelectCharacter} className={
-            `${currentId === character.id ? 'bg-purple-lighter' : ''} 
-                px-3 flex items-center 
-                cursor-pointer border-b 
-                border-grey-lighter
-                rounded-md`}>
+            `${currentId === character.id ? 'bg-purple-lighter' : ''} wrapper-character`}>
             <div>
-                <img className="h-8 w-8 rounded-full"
-                    src={character.image} />
+                <img className="h-8 w-8 rounded-full" src={character.image} />
             </div>
             <div className="ml-4 flex-1 py-4">
                 <div className="flex items-bottom justify-between">
-                    <p className="text-grey-darkest font-bold">{character.name}</p>
+                    <p className="font-semibold">{character.name}</p>
                 </div>
-                <p className="text-grey-dark mt-1 text-sm">{character.species}</p>
+                <p className="text-grey-500 mt-1 text-sm">{character.species}</p>
             </div>
         </div>
     )
