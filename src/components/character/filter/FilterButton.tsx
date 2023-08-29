@@ -5,9 +5,10 @@ import { FilterCharacter } from "../../../services/characters/types";
 
 type FilterButtonProps = {
     onSearch(filter: FilterCharacter): void;
+    isMobile: boolean;
 }
 
-const FilterButton = ({ onSearch }: FilterButtonProps) => {
+const FilterButton = ({ onSearch, isMobile }: FilterButtonProps) => {
     const { characterFilerBy, specieFilterBy, queryFilter, setShow } = useContext(FilterContext);
     const [enableButton, setEnableButton] = useState<boolean>(false);
 
@@ -25,7 +26,7 @@ const FilterButton = ({ onSearch }: FilterButtonProps) => {
     }
 
     return (
-        <div className="container-filter-button">
+        <div className={`container-filter-button ${isMobile ? 'bottom-0 absolute left-0 bg-transparent' : ''}`}>
             <div className={`${enableButton ? 'bg-purple-light' : ''} wrapper-filter-button`}>
                 <button type="button" disabled={!enableButton}  className={`${enableButton ? 'text-white' : ''} check-button-search`} onClick={() => onClick()}>Filter</button>
             </div>

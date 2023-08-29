@@ -31,10 +31,10 @@
         @apply flex border rounded shadow-lg h-full
     }
     .home-right{
-        @apply sm:flex hidden w-2/3 border flex-col py-5 pl-20 pt-10 px-10
+        @apply lg:flex hidden w-2/3 border flex-col py-5 pl-20 pt-10 px-10
     }
     .home-left-items{
-        @apply sm:w-1/3 w-full bg-grey-lighter border flex flex-col p-5 pt-10
+        @apply lg:w-1/3 w-full bg-grey-lighter border flex flex-col p-5 pt-10
     }
     .home-left-title{
         @apply py-2 px-3 bg-grey-lighter flex flex-row justify-between items-center
@@ -64,7 +64,7 @@
         @apply border-b border-grey-lighter py-3
     }
     .container-filter{
-        @apply sm:w-1/3 bg-transparent absolute my-2 pt-0 p-5 left-0
+        @apply lg:w-1/3 w-full bg-transparent absolute my-2 pt-0 p-5 left-0
     }
     .wrapper-filter{
         @apply flex w-full bg-white p-5 pt-0

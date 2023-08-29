@@ -15,32 +15,26 @@ const Character = ({ character }: CharacterProps) => {
     const [isStarred, setIsStarred] = useState<Boolean>(false);
 
     useEffect(() => {
-        if(charactersStarred.map(x=>x.id).includes(character.id))
+        if (charactersStarred.length && charactersStarred.map(x => x.id).includes(character.id))
             setIsStarred(true);
         else
             setIsStarred(false);
+        
     }, [charactersStarred])
 
     const onStarred = () => {
         let starredIds = JSON.parse(localStorage.getItem('starredIds') || '[]');
-        const isStarred = charactersStarred.map(x=>x.id).includes(character.id);
+        const isStarred = charactersStarred.map(x => x.id).includes(character.id);
+        const auxCharactersStarred = charactersStarred;
 
-        if(isStarred){
-            if(starredIds.length === 1){
-                starredIds = [];
-                setCharactersStarred([]);
-                return;
-            }
-
-            const indexCharacterStarred = charactersStarred.indexOf(character);
-            const indexCharacterStarredId = starredIds.indexOf(character.id);
-            starredIds = starredIds.slice(indexCharacterStarredId);
-            setCharactersStarred([...charactersStarred.slice(indexCharacterStarred)]);
-        }else{
+        if (isStarred && starredIds.length > 0) {
+            starredIds.splice(starredIds.indexOf(character.id), 1);
+            auxCharactersStarred.splice(charactersStarred.indexOf(character), 1);
+            auxCharactersStarred.length ? setCharactersStarred([...auxCharactersStarred]) : setCharactersStarred([]);
+        } else {
             starredIds.push(character.id);
             setCharactersStarred([...charactersStarred, character]);
         }
-        
         localStorage.setItem('starredIds', JSON.stringify(starredIds));
     }
 
@@ -53,19 +47,19 @@ const Character = ({ character }: CharacterProps) => {
     }
 
     return (
-        <div onClick={onSelectCharacter} className={
+        <div className={
             `${currentId === character.id ? 'bg-purple-lighter' : ''} wrapper-character`}>
             <div>
                 <img className="h-8 w-8 rounded-full" src={character.image} />
             </div>
-            <div className="ml-4 flex-1 py-4">
+            <div onClick={onSelectCharacter} className="ml-4 flex-1 py-4">
                 <div className="flex items-bottom justify-between">
                     <p className="font-semibold">{character.name}</p>
                 </div>
                 <p className="text-grey-500 mt-1 text-sm">{character.species}</p>
             </div>
-            <div className="hover:cursor-default" onClick={onStarred}>
-                {isStarred ? <BiSolidHeart className="w-[18px] h-[18px] text-green" /> : <BiHeart className="w-[18px] h-[18px] text-grey-300" />}
+            <div className={`hover:cursor-default w-[32] h-[32] rounded-full ${currentId === character.id && isStarred ? 'bg-white' : ''}`} onClick={onStarred}>
+                {isStarred ? <BiSolidHeart className="w-[18px] h-[18px] text-green-light m-1" /> : <BiHeart className="w-[18px] h-[18px] text-grey-300" />}
             </div>
         </div>
     )

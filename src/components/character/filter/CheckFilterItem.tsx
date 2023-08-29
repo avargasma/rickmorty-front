@@ -70,8 +70,6 @@ const CheckFilterItem = ({ item, filterBy }: CheckFilterItemProps) => {
                 default:
                     break;
             }            
-        }else{
-            setIsChecked(false);
         }
     }
 

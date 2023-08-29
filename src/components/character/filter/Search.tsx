@@ -47,11 +47,11 @@ const Search = () => {
         setFilter(value);
     }
 
-    const onClickShow = (show:boolean) => {
+    const onClickShow = () => {
         if (!filtersSelected){
             fetchCharacters();
         }
-        setShow(show);
+        setShow(!show);
     }
 
     const processResult = (data:any) => {
@@ -70,7 +70,7 @@ const Search = () => {
             <div className="div-search">
                 <BiSearch className="search-icon text-grey-400" />
                 <input type={"search"} className="search-input" onChange={onChanheText} placeholder="Search or filter results" />
-                <span className="filter-icon" onClick={() => onClickShow(!show)}>
+                <span className="filter-icon" onClick={() => onClickShow()}>
                     <HiAdjustments className="w-6 h-6" />
                 </span>
             </div>
@@ -80,7 +80,7 @@ const Search = () => {
                     <div className="flex pt-5 px-2 pb-2 grow justify-end " ><p className="bg-green-lighter bg-opacity-25 text-green font-bold py-1 px-4 rounded-2xl">{filtersSelected} Filter</p></div>
                 </div>
             }
-            {show && <Filter onSearch={onSearch} />}
+            {show && <Filter onSearch={onSearch} onCloseFilter={onClickShow} />}
         </div>
     )
 }

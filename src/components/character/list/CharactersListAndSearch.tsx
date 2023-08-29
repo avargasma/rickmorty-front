@@ -16,13 +16,13 @@ const CharactersListAndSearch = () => {
             setCharacters(data.characters.results);
             setCurrentId(data.characters.results[0].id);            
             const localStarred = JSON.parse(localStorage.getItem('starredIds') || '[]');
-            setCharactersStarred(characters.filter((x) => localStarred.includes(x.id)));
+            setCharactersStarred(data.characters.results.filter((x:any) => localStarred.includes(x.id)));
         }
         else{
             setCharacters([]);            
             setCurrentId('');
         }
-    }, [])
+    }, []);
 
     useEffect(() => {
         fetchData();

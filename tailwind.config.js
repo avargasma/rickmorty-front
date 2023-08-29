@@ -12,7 +12,7 @@ module.exports = {
         'purple-light':'#8054C7',
         'purple':'#5A3696',
         'green':'#3B8520',
-        'green-light':'#63D838',
+        'green-light':'#53C629',
         'green-lighter':'#3B8520',
         'blue-light':'#2563EB',
         'grey': {
